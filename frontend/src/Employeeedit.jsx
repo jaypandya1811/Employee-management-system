@@ -1,0 +1,74 @@
+import axios from 'axios';
+import { useEffect,useState } from 'react';
+import { useForm } from "react-hook-form"
+
+export default function Editemployee({ data,id,onRefresh,onEdited }){  
+    const [employeedata,setemployeedata] = useState([]);
+
+    const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+    } = useForm({
+        defaultValues : {
+            name: data.name,
+            designation: data.designation,
+            joining_date: data.joining_date,
+        }
+    });
+
+    const updatedata = (data) => {
+        console.log(data);
+        axios.put(`http://127.0.0.1:8000/getemployee/${id}`, data)
+        .then(res => {
+            onEdited(true);
+            onRefresh();
+        });
+    };
+
+    return(
+        <>
+        <div className="min-h-screen flex items-center justify-center p-4">
+        <div className="w-full max-w-lg bg-white shadow-xl rounded-2xl p-6">
+        <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">Edit Employee</h2>
+        <form className="space-y-5" onSubmit={handleSubmit(updatedata)}>
+        <div>
+        <label className="block text-gray-700 font-medium mb-1">Name</label>
+        <input
+        type="text"
+        placeholder="Enter name"
+        {...register("name")}
+        className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        />
+        </div>
+        <div>
+        <label className="block text-gray-700 font-medium mb-1">Designation</label>
+        <input
+        type="text"
+        placeholder="Enter designation"
+        {...register("designation")}
+        className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        />
+        </div>
+        <div>
+        <label className="block text-gray-700 font-medium mb-1">Joining Date</label>
+        <input
+        type="date"
+        {...register("joining_date")}
+        className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        />
+        </div>
+        <button
+        id="save"
+        type="submit"
+        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-xl transition"
+        >
+        Edit
+        </button>
+        </form>
+        </div>
+        </div>
+        </>
+    )
+}
