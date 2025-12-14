@@ -19,7 +19,6 @@ export default function Editemployee({ data,id,onRefresh,onEdited }){
     });
 
     const updatedata = (data) => {
-        console.log(data);
         axios.put(`http://127.0.0.1:8000/getemployee/${id}`, data)
         .then(res => {
             onEdited(true);

@@ -14,8 +14,8 @@ function App() {
 
   return(
     <>
-    <h1 className='text-3xl font-bold mx-93 py-8'>
-      Employee CRUD system using Django's drf
+    <h1 className='md:text-3xl sm:text-2xl text-xl font-bold w-auto text-center py-8'>
+      Employee Management Sytem
     </h1>
     <Employeelist reload={reload} onRefresh={refreshcomponent}></Employeelist>
     <Employeeform onRefresh={refreshcomponent}></Employeeform>

@@ -24,7 +24,7 @@ function Employeeform({ onRefresh }){
         <>
         <div className="min-h-screen flex items-center justify-center p-4">
         <div className="w-full max-w-lg bg-white shadow-xl rounded-2xl p-6">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">Add Employee</h2>
+        <h2 className="md:text-2xl text-xl font-bold text-gray-800 mb-4 text-center">Add Employee</h2>
         <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
         <div>
         <label className="block text-gray-700 font-medium mb-1">Name</label>

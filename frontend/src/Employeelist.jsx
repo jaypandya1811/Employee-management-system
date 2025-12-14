@@ -35,8 +35,8 @@ function Employeelist({ reload,onRefresh }){
 
     return(
         <>
-        <div className="w-300 mx-20 bg-white shadow-xl rounded-2xl p-6 font-medium">
-        <h1 className="text-2xl font-bold mb-4 text-gray-800 text-center">Employee Details</h1>
+        <div className="xl:w-300 md:w-300 xl:mx-20 md:mx-20 mx-6 bg-white shadow-xl rounded-2xl p-6 font-medium">
+        <h1 className="md:text-2xl text-xl font-bold mb-4 text-gray-800 text-center">Employee Details</h1>
         <div className="overflow-x-auto">
         <table className="min-w-full border border-gray-300 rounded-xl overflow-hidden">
         <thead className="bg-blue-600 text-white">
