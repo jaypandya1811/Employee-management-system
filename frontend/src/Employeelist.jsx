@@ -48,7 +48,7 @@ function Employeelist({ reload,onRefresh }){
         <th className="px-4 py-3 text-left">Action</th>
         </tr>
         </thead>
-        <tbody className="divide-y divide-gray-200">
+        { employees.length ? ( <tbody className="divide-y divide-gray-200">
         {employees.map((e) => (
         <tr className="hover:bg-blue-50 transition" key={e.id}>
         <td className="px-4 py-3">{e.id}</td>
@@ -58,7 +58,7 @@ function Employeelist({ reload,onRefresh }){
         <td className="px-4 py-3 flex gap-3 text-xl"><MdEdit onClick={() => getemployee(e.id)}></MdEdit><span><MdDelete onClick={() => deleteemployee(e.id)}></MdDelete></span></td>
         </tr>
         ))}
-        </tbody>
+        </tbody> ) : ( <span className='text-center text-xl'>No Data</span> )}
         </table>
         </div>
         </div>

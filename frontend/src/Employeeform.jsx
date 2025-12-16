@@ -31,26 +31,29 @@ function Employeeform({ onRefresh }){
         <input
         type="text"
         placeholder="Enter name"
-        {...register("name")}
+        {...register("name",{required : true})}
         className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
         />
+        {errors.name && <span className="text-red-600 font-semibold py-2">Name is required</span>}        
         </div>
         <div>
         <label className="block text-gray-700 font-medium mb-1">Designation</label>
         <input
         type="text"
         placeholder="Enter designation"
-        {...register("designation")}
+        {...register("designation",{required : true})}
         className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
         />
+        {errors.designation && <span className="text-red-600 font-semibold py-2">Designation is required</span>}
         </div>
         <div>
         <label className="block text-gray-700 font-medium mb-1">Joining Date</label>
         <input
         type="date"
-        {...register("joining_date")}
+        {...register("joining_date",{required : true})}
         className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
         />
+        {errors.joining_date && <span className="text-red-600 font-semibold py-2">Joining date is required</span>}
         </div>
         <button
         id="save"
